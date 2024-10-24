@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Management</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .sidebar {
+            height: 100vh;
+            position: fixed;
+            background-color: #f8f9fa;
+            width: 250px;
+        }
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+        .file-grid {
+            display: flex;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+        .file-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <div class="sidebar p-4">
+        <h4>Drive</h4>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" href="#">My Drive</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Shared with me</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Recent</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Trash</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Content -->
+    <div class="content">
+        <div class="d-flex justify-content-between align-items-center">
+            <h4>My Drive</h4>
+            <div>
+                <button class="btn btn-danger" id="logoutBtn">Logout</button>
+                <input type="file" id="fileInput" class="d-none" />
+                <button class="btn btn-primary" id="uploadBtn">Upload Files</button>
+            </div>
+        </div>
+
+        <div class="file-grid" id="fileGrid">
+            <!-- Tệp ví dụ -->
+            <div class="file-card">
+                <span class="file-name">Document.docx</span>
+                <div>
+                    <button class="btn btn-success btn-sm" onclick="downloadFile('Document.docx')">Download</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteFile(this)">Delete</button>
+                </div>
+            </div>
+            <div class="file-card">
+                <span class="file-name">Image.jpg</span>
+                <div>
+                    <button class="btn btn-success btn-sm" onclick="downloadFile('Image.jpg')">Download</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteFile(this)">Delete</button>
+                </div>
+            </div>
+            <div class="file-card">
+                <span class="file-name">Presentation.pptx</span>
+                <div>
+                    <button class="btn btn-success btn-sm" onclick="downloadFile('Presentation.pptx')">Download</button>
+                    <button class="btn btn-danger btn-sm" onclick="deleteFile(this)">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Tệp JS riêng cho upload -->
+    <script src="../js/upload.js"></script>
+    <script src="../js/logout.js"></script>
+
+</body>
+</html>
